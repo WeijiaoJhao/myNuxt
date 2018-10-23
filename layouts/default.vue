@@ -1,6 +1,8 @@
 <template>
   <div>
+    <header>VUE SRR DEMO</header>
     <nuxt/>
+    <footer>COPYRIGHT LXY</footer>
   </div>
 </template>
 

@@ -5,6 +5,7 @@
       <h1 class="title">
         myNuxt
       </h1>
+      <nuxt-link to="/user">user</nuxt-link>
       <h2 class="subtitle">
         My dazzling Nuxt.js project
       </h2>
