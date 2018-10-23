@@ -7,6 +7,7 @@
     </ul>
     <button type="button" @click="eventFun">event</button>
     <p>{{ info }}</p>
+    <p>asyncData {{ watchVal }}</p>
   </div>
 </template>
 
@@ -26,6 +27,10 @@ export default {
       items: ['aa', 'bb'],
       watchVal: 0
     }
+  },
+  asyncData(context) {
+    //在服务端或路由更新之前被调用...fetch、head功效?
+    return { watchVal: 5 }
   },
   computed: {
     info() {

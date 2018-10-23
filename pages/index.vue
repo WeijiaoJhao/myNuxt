@@ -6,6 +6,7 @@
         myNuxt
       </h1>
       <nuxt-link to="/user">user</nuxt-link>
+      <nuxt-link to="/login">logout</nuxt-link>
       <h2 class="subtitle">
         My dazzling Nuxt.js project
       </h2>
