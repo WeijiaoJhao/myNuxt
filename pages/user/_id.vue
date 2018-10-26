@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  middleware: 'auth',
   validate({ params }) {
     // return /^\d+$/.test(params.id)
     return true

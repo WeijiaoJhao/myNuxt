@@ -3,33 +3,53 @@
     <div>
       <logo/>
       <h1 class="title">
-        myNuxt
+        myNuxt - {{ tryy }}
       </h1>
-      <nuxt-link to="/user">user</nuxt-link>
-      <nuxt-link to="/login">logout</nuxt-link>
       <h2 class="subtitle">
         My dazzling Nuxt.js project
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+      <form v-if="!$store.state.authUser">
+        <input v-model="data.username" type="text" placeholder="user name" />
+        <input v-model="data.password" type="password" placeholder="password" />
+        <button type="button" @click="login">login</button>
+      </form>
+      <div v-else>
+        Hi {{ authUser }}
+        <button type="button" @click="logout">logout</button>
       </div>
+      <nuxt-link to="/user">go user page</nuxt-link>
     </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      data: {
+        username: '',
+        password: ''
+      }
+    }
+  },
+  computed: {
+    ...mapState(['tryy', 'authUser'])
+  },
+  methods: {
+    ...mapActions(['LOGIN_API', 'LOGOUT_API']),
+    login() {
+      this.LOGIN_API({ ...this.data })
+      this.data = {}
+    },
+    logout() {
+      this.LOGOUT_API()
+    }
   }
 }
 </script>
